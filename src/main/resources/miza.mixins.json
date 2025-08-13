@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "ru.zenegix.miza.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "ru.zenegix.miza.MizaMixinPlugin",
+  "mixins": [
+  ],
+  "client": [
+    "PlayerMixin",
+    "journeymap.DrawEntityStepMixin",
+    "owo.LabelComponentMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

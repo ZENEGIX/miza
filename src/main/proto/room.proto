@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package ru.zenegix.miza.generated;
+
+message Room {
+
+  string name = 1;
+
+  repeated Group groups = 2;
+}
+
+message Group {
+
+  bytes id = 1;
+
+  string display_name = 2;
+
+  repeated string members = 3;
+
+  int32 weight = 4;
+
+  string prefix = 5;
+
+  string suffix = 6;
+}

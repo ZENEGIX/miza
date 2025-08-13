@@ -1,0 +1,434 @@
+<owo-ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="./../../../../../../owo-lib.xsd">
+    <components>
+        <flow-layout direction="vertical" id="body">
+            <children>
+                <grid-layout columns="3" rows="1" id="header">
+                    <children>
+                        <flow-layout column="2" row="0" direction="horizontal">
+                            <children>
+                                <button id="room-sync-button">
+                                    <text>Синхронизировать</text>
+                                </button>
+
+                                <button id="room-screen-button">
+                                    <text>Настройки</text>
+                                    <margins>
+                                        <left>5</left>
+                                    </margins>
+                                </button>
+                            </children>
+
+                            <horizontal-alignment>right</horizontal-alignment>
+                            <vertical-alignment>center</vertical-alignment>
+
+                            <sizing>
+                                <horizontal method="fill">33</horizontal>
+                                <vertical method="fill">100</vertical>
+                            </sizing>
+                        </flow-layout>
+                    </children>
+
+                    <sizing>
+                        <horizontal method="fill">100</horizontal>
+                        <vertical method="fill">7</vertical>
+                    </sizing>
+                </grid-layout>
+
+                <flow-layout direction="horizontal" id="working-area">
+                    <children>
+                        <flow-layout direction="vertical" id="groups">
+                            <children>
+                                <flow-layout direction="horizontal" id="groups-header">
+                                    <children>
+                                        <flow-layout direction="horizontal">
+                                            <sizing>
+                                                <horizontal method="fill">10</horizontal>
+                                                <vertical method="fill">100</vertical>
+                                            </sizing>
+                                        </flow-layout>
+
+                                        <label>
+                                            <text>Группы</text>
+                                            <vertical-text-alignment>center</vertical-text-alignment>
+                                            <horizontal-text-alignment>center</horizontal-text-alignment>
+
+                                            <sizing>
+                                                <horizontal method="fill">80</horizontal>
+                                                <vertical method="fill">100</vertical>
+                                            </sizing>
+                                        </label>
+                                    </children>
+
+                                    <sizing>
+                                        <horizontal method="fill">100</horizontal>
+                                        <vertical method="fill">5</vertical>
+                                    </sizing>
+
+                                    <surface>
+                                        <flat>#3f101010</flat>
+                                    </surface>
+                                </flow-layout>
+
+                                <flow-layout direction="vertical" id="groups-delimiter-1">
+                                    <sizing>
+                                        <horizontal method="fill">100</horizontal>
+                                        <vertical method="fill">3</vertical>
+                                    </sizing>
+                                </flow-layout>
+
+                                <scroll direction="vertical" id="groups-list-scroll">
+                                    <flow-layout direction="vertical" id="groups-list">
+                                        <padding>
+                                            <right>3</right>
+                                        </padding>
+                                    </flow-layout>
+
+                                    <sizing>
+                                        <horizontal method="fill">100</horizontal>
+                                        <vertical method="fill">92</vertical>
+                                    </sizing>
+
+                                    <surface>
+                                        <flat>#3f101010</flat>
+                                    </surface>
+                                </scroll>
+                            </children>
+
+                            <sizing>
+                                <horizontal method="fill">30</horizontal>
+                                <vertical method="fill">100</vertical>
+                            </sizing>
+                        </flow-layout>
+
+                        <flow-layout direction="vertical" id="groups-delimiter-1">
+                            <sizing>
+                                <horizontal method="fill">2</horizontal>
+                                <vertical method="fill">100</vertical>
+                            </sizing>
+                        </flow-layout>
+                    </children>
+
+                    <margins>
+                        <left>30</left>
+                        <right>30</right>
+                    </margins>
+
+                    <sizing>
+                        <horizontal method="fill">100</horizontal>
+                        <vertical method="fill">86</vertical>
+                    </sizing>
+                </flow-layout>
+
+                <flow-layout direction="vertical" id="footer">
+                    <sizing>
+                        <horizontal method="fill">100</horizontal>
+                        <vertical method="fill">7</vertical>
+                    </sizing>
+                </flow-layout>
+            </children>
+
+            <surface>
+                <flat>#C0101010</flat>
+            </surface>
+        </flow-layout>
+    </components>
+
+    <templates>
+        <template name="groups-header-add-button">
+            <button>
+                <text>+</text>
+
+                <sizing>
+                    <horizontal method="fill">10</horizontal>
+                    <vertical method="fill">100</vertical>
+                </sizing>
+            </button>
+        </template>
+
+        <template name="groups-list-entry">
+            <flow-layout direction="horizontal">
+                <children>
+                    <button id="groups-list-entry-button">
+                        <text>{{group-name}}</text>
+
+                        <sizing>
+                            <horizontal method="fill">{{horizontal-sizing}}</horizontal>
+                            <vertical method="fill">100</vertical>
+                        </sizing>
+                    </button>
+                </children>
+
+                <sizing>
+                    <horizontal method="fill">100</horizontal>
+                    <vertical method="fill">5</vertical>
+                </sizing>
+            </flow-layout>
+        </template>
+
+        <template name="groups-list-entry-delete-button">
+            <button id="groups-list-entry-delete-button">
+                <text>X</text>
+
+                <sizing>
+                    <horizontal method="fill">10</horizontal>
+                    <vertical method="fill">100</vertical>
+                </sizing>
+            </button>
+        </template>
+
+        <template name="selected-group">
+            <flow-layout direction="vertical">
+                <children>
+                    <flow-layout direction="horizontal" id="selected-group-header">
+                        <children>
+                            <label id="selected-group-header-name-label">
+                                <text>Группа</text>
+
+                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                <vertical-text-alignment>center</vertical-text-alignment>
+
+                                <sizing>
+                                    <horizontal method="fill">30</horizontal>
+                                    <vertical method="fill">100</vertical>
+                                </sizing>
+                            </label>
+                        </children>
+
+                        <sizing>
+                            <horizontal method="fill">100</horizontal>
+                            <vertical method="fill">5</vertical>
+                        </sizing>
+
+                        <surface>
+                            <flat>#3f101010</flat>
+                        </surface>
+                    </flow-layout>
+
+                    <flow-layout direction="vertical" id="selected-group-delimiter-1">
+                        <sizing>
+                            <horizontal method="fill">100</horizontal>
+                            <vertical method="fill">3</vertical>
+                        </sizing>
+                    </flow-layout>
+
+                    <flow-layout direction="horizontal" id="selected-group-working-area">
+                        <sizing>
+                            <horizontal method="fill">100</horizontal>
+                            <vertical method="fill">92</vertical>
+                        </sizing>
+
+                        <surface>
+                            <flat>#3f101010</flat>
+                        </surface>
+                    </flow-layout>
+                </children>
+
+                <sizing>
+                    <horizontal method="fill">68</horizontal>
+                    <vertical method="fill">100</vertical>
+                </sizing>
+            </flow-layout>
+        </template>
+
+        <template name="selected-group-header-players-button">
+            <button>
+                <text>Игроки ({{members-size}})</text>
+
+                <sizing>
+                    <horizontal method="fill">{{horizontal-sizing}}</horizontal>
+                    <vertical method="fill">100</vertical>
+                </sizing>
+            </button>
+        </template>
+
+        <template name="selected-group-header-settings-button">
+            <button>
+                <text>Настройки</text>
+
+                <sizing>
+                    <horizontal method="fill">30</horizontal>
+                    <vertical method="fill">100</vertical>
+                </sizing>
+            </button>
+        </template>
+
+        <template name="selected-group-settings">
+            <flow-layout direction="vertical">
+                <children>
+                    <flow-layout direction="horizontal">
+                        <children>
+                            <label>
+                                <text>Название</text>
+
+                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                <vertical-text-alignment>center</vertical-text-alignment>
+
+                                <sizing>
+                                    <horizontal method="fill">20</horizontal>
+                                    <vertical method="fill">100</vertical>
+                                </sizing>
+                            </label>
+
+                            <text-box id="selected-group-settings-name-text-box">
+                                <sizing>
+                                    <horizontal method="fill">80</horizontal>
+                                    <vertical method="fill">100</vertical>
+                                </sizing>
+                            </text-box>
+                        </children>
+
+                        <sizing>
+                            <horizontal method="fill">100</horizontal>
+                            <vertical method="fill">5</vertical>
+                        </sizing>
+                    </flow-layout>
+                    <flow-layout direction="horizontal">
+                        <children>
+                            <label>
+                                <text>Префикс</text>
+
+                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                <vertical-text-alignment>center</vertical-text-alignment>
+
+                                <sizing>
+                                    <horizontal method="fill">20</horizontal>
+                                    <vertical method="fill">100</vertical>
+                                </sizing>
+                            </label>
+
+                            <text-box id="selected-group-settings-prefix-text-box">
+                                <sizing>
+                                    <horizontal method="fill">80</horizontal>
+                                    <vertical method="fill">100</vertical>
+                                </sizing>
+                            </text-box>
+                        </children>
+
+                        <sizing>
+                            <horizontal method="fill">100</horizontal>
+                            <vertical method="fill">5</vertical>
+                        </sizing>
+                    </flow-layout>
+                    <flow-layout direction="horizontal">
+                        <children>
+                            <label>
+                                <text>Суффикс</text>
+
+                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                <vertical-text-alignment>center</vertical-text-alignment>
+
+                                <sizing>
+                                    <horizontal method="fill">20</horizontal>
+                                    <vertical method="fill">100</vertical>
+                                </sizing>
+                            </label>
+
+                            <text-box id="selected-group-settings-suffix-text-box">
+                                <sizing>
+                                    <horizontal method="fill">80</horizontal>
+                                    <vertical method="fill">100</vertical>
+                                </sizing>
+                            </text-box>
+                        </children>
+
+                        <sizing>
+                            <horizontal method="fill">100</horizontal>
+                            <vertical method="fill">5</vertical>
+                        </sizing>
+                    </flow-layout>
+                </children>
+
+                <sizing>
+                    <horizontal method="fill">100</horizontal>
+                    <vertical method="fill">100</vertical>
+                </sizing>
+            </flow-layout>
+        </template>
+
+        <template name="selected-group-players">
+            <flow-layout direction="vertical">
+                <sizing>
+                    <horizontal method="fill">100</horizontal>
+                    <vertical method="fill">100</vertical>
+                </sizing>
+            </flow-layout>
+        </template>
+
+        <template name="selected-group-players-add">
+            <flow-layout direction="horizontal">
+                <children>
+                    <text-box id="selected-group-players-add-text-box">
+                        <sizing>
+                            <horizontal method="fill">80</horizontal>
+                            <vertical method="fill">100</vertical>
+                        </sizing>
+                    </text-box>
+
+                    <button id="selected-group-players-add-button">
+                        <text>Добавить</text>
+
+                        <sizing>
+                            <horizontal method="fill">20</horizontal>
+                            <vertical method="fill">100</vertical>
+                        </sizing>
+                    </button>
+                </children>
+
+                <sizing>
+                    <horizontal method="fill">100</horizontal>
+                    <vertical method="fill">5</vertical>
+                </sizing>
+            </flow-layout>
+        </template>
+
+        <template name="selected-group-players-list-scroll">
+            <scroll direction="vertical">
+                <flow-layout direction="vertical" id="selected-group-players-list">
+                    <padding>
+                        <right>3</right>
+                    </padding>
+                </flow-layout>
+
+                <sizing>
+                    <horizontal method="fill">100</horizontal>
+                    <vertical method="fill">90</vertical>
+                </sizing>
+            </scroll>
+        </template>
+
+        <template name="selected-group-players-entry">
+            <flow-layout direction="horizontal">
+                <children>
+                    <label>
+                        <text>{{member-name}}</text>
+
+                        <horizontal-text-alignment>center</horizontal-text-alignment>
+                        <vertical-text-alignment>center</vertical-text-alignment>
+
+                        <sizing>
+                            <horizontal method="fill">{{horizontal-sizing}}</horizontal>
+                            <vertical method="fill">100</vertical>
+                        </sizing>
+                    </label>
+                </children>
+
+                <sizing>
+                    <horizontal method="fill">100</horizontal>
+                    <vertical method="fill">5</vertical>
+                </sizing>
+            </flow-layout>
+        </template>
+
+        <template name="selected-group-players-entry-delete-button">
+            <button>
+                <text>X</text>
+
+                <sizing>
+                    <horizontal method="fill">5</horizontal>
+                    <vertical method="fill">100</vertical>
+                </sizing>
+            </button>
+        </template>
+    </templates>
+</owo-ui>
