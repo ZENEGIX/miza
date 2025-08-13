@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "miza",
+  "version": "${version}",
+  "name": "Miza",
+  "description": "Flexible players groups for show in world",
+  "authors": [
+    "ZENEGIX"
+  ],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/miza/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "ru.zenegix.miza.MizaClient"
+    ]
+  },
+  "mixins": [
+    "miza.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}",
+    "owo": "*"
+  }
+}

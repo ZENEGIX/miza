@@ -1,0 +1,103 @@
+<owo-ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="./../../../../../../owo-lib.xsd">
+    <components>
+        <flow-layout direction="vertical" id="body">
+            <children>
+                <grid-layout columns="3" rows="1" id="header">
+                    <children>
+                        <flow-layout column="0" row="0" direction="horizontal">
+                            <children>
+                                <button id="previous-screen-button">
+                                    <text>Назад</text>
+
+                                    <margins>
+                                        <left>5</left>
+                                    </margins>
+                                </button>
+                            </children>
+
+                            <horizontal-alignment>left</horizontal-alignment>
+                            <vertical-alignment>center</vertical-alignment>
+
+                            <sizing>
+                                <horizontal method="fill">33</horizontal>
+                                <vertical method="fill">100</vertical>
+                            </sizing>
+                        </flow-layout>
+                    </children>
+
+                    <sizing>
+                        <horizontal method="fill">100</horizontal>
+                        <vertical method="fill">7</vertical>
+                    </sizing>
+                </grid-layout>
+                <flow-layout direction="vertical" id="working-area">
+                    <children>
+                        <flow-layout direction="vertical">
+                            <children>
+                                <label>
+                                    <text>Придумайте название:</text>
+                                </label>
+
+                                <text-box id="name-text-box">
+                                    <margins>
+                                        <top>10</top>
+                                    </margins>
+
+                                    <sizing>
+                                        <vertical method="fill">15</vertical>
+                                        <horizontal method="fill">70</horizontal>
+                                    </sizing>
+                                </text-box>
+
+                                <button id="create-button">
+                                    <text>Создать</text>
+
+                                    <margins>
+                                        <top>10</top>
+                                    </margins>
+
+                                    <sizing>
+                                        <vertical method="fill">15</vertical>
+                                        <horizontal method="fill">20</horizontal>
+                                    </sizing>
+                                </button>
+                            </children>
+
+                            <vertical-alignment>center</vertical-alignment>
+                            <horizontal-alignment>center</horizontal-alignment>
+
+                            <margins>
+                                <all>30</all>
+                            </margins>
+
+                            <sizing>
+                                <horizontal method="fill">100</horizontal>
+                                <vertical method="fill">60</vertical>
+                            </sizing>
+                        </flow-layout>
+
+                        <flow-layout direction="vertical" id="error-area">
+                            <vertical-alignment>center</vertical-alignment>
+                            <horizontal-alignment>center</horizontal-alignment>
+
+                            <sizing>
+                                <horizontal method="fill">100</horizontal>
+                                <vertical method="fill">40</vertical>
+                            </sizing>
+                        </flow-layout>
+                    </children>
+
+                    <sizing>
+                        <horizontal method="fill">100</horizontal>
+                        <vertical method="fill">60</vertical>
+                    </sizing>
+                </flow-layout>
+            </children>
+
+            <surface>
+                <flat>#C0101010</flat>
+            </surface>
+        </flow-layout>
+    </components>
+</owo-ui>
